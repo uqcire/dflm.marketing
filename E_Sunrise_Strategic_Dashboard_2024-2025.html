@@ -407,6 +407,64 @@
             transform: rotate(180deg);
         }
 
+        .navbar {
+            background: #2c3e50;
+            padding: 15px 0;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .navbar-brand {
+            color: white;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .navbar-nav {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: 2px solid transparent;
+        }
+
+        .nav-link:hover {
+            background: #3498db;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .nav-link.home {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            font-weight: 600;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-link.home:hover {
+            background: linear-gradient(135deg, #229954, #27ae60);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(39, 174, 96, 0.4);
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 10px;
@@ -414,6 +472,23 @@
 
             .header h1 {
                 font-size: 2em;
+            }
+
+            .navbar-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .navbar-nav {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: center;
             }
 
             .nav-buttons {
@@ -428,7 +503,21 @@
 </head>
 
 <body>
-    <div class="container">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-brand">
+                🌏 Dongfang Liming Australia
+            </div>
+            <div class="navbar-nav">
+                <a href="index.html" class="nav-link home">🏠 Overview</a>
+                <a href="#overview" class="nav-link">📊 Strategic
+                    Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" id="overview">
         <!-- Header Section -->
         <div class="header">
             <h1>🌏 Dongfang Liming Australia</h1>

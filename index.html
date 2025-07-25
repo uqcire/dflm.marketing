@@ -219,6 +219,64 @@
             font-weight: 600;
         }
 
+        .navbar {
+            background: #2c3e50;
+            padding: 15px 0;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .navbar-brand {
+            color: white;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .navbar-nav {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: 2px solid transparent;
+        }
+
+        .nav-link:hover {
+            background: #3498db;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .nav-link.dashboard {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            font-weight: 600;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-link.dashboard:hover {
+            background: linear-gradient(135deg, #c0392b, #a93226);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+        }
+
         .contact-section {
             background: #2c3e50;
             color: white;
@@ -275,6 +333,23 @@
                 font-size: 2em;
             }
 
+            .navbar-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .navbar-nav {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: center;
+            }
+
             .timeline-item {
                 flex-direction: column;
                 text-align: center;
@@ -289,7 +364,21 @@
 </head>
 
 <body>
-    <div class="container">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-brand">
+                🌏 Dongfang Liming Australia
+            </div>
+            <div class="navbar-nav">
+                <a href="#overview" class="nav-link">🏠 Overview</a>
+                <a href="E_Sunrise_Strategic_Dashboard_2024-2025.html" class="nav-link dashboard">📊 Strategic
+                    Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" id="overview">
         <div class="header">
             <h1>🌏 Dongfang Liming Australia</h1>
             <p>Strategic Market Entry - Melbourne B2B Agricultural Import & Distribution</p>
@@ -574,7 +663,9 @@
                 </div>
 
                 <div class="contact-card">
-                    <h4>🎯 Next Steps</h4>
+                    <h4><a href="E_Sunrise_Strategic_Dashboard_2024-2025.html"
+                            style="color: #3498db; text-decoration: none;">🎯 Strategic Dashboard</a></h4>
+                    <p><strong>Detailed Analytics:</strong></p>
                     <p><strong>Week 1:</strong> Target company research</p>
                     <p><strong>Week 2:</strong> Sales toolkit development</p>
                     <p><strong>Week 3:</strong> Digital presence launch</p>
