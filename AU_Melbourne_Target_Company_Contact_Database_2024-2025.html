@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AU Melbourne Target Company & Contact Database 2024-2025 | Dongfang Liming Australia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            margin-bottom: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .nav-tab {
+            flex: 1;
+            padding: 1rem;
+            background: #ecf0f1;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-tab.active {
+            background: #3498db;
+            color: white;
+        }
+
+        .nav-tab:hover {
+            background: #2980b9;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .section-header {
+            background: #34495e;
+            color: white;
+            padding: 1rem;
+            margin: 2rem 0 1rem 0;
+            border-radius: 5px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .company-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 1rem 0;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .company-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .company-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .priority-stars {
+            color: #f39c12;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .company-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .detail-item {
+            background: white;
+            padding: 0.5rem;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #34495e;
+        }
+
+        .contact-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-table th {
+            background: #34495e;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .contact-table td {
+            padding: 0.8rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .contact-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .status-badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .status-completed {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-limited {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-required {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .metric-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #3498db;
+        }
+
+        .metric-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .metric-label {
+            color: #7f8c8d;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .action-plan {
+            background: #e8f6f3;
+            border: 1px solid #16a085;
+            border-radius: 5px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .action-plan h4 {
+            color: #16a085;
+            margin-bottom: 0.5rem;
+        }
+
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            padding: 0.3rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .checklist li:before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .nav-tabs {
+                flex-direction: column;
+            }
+
+            .company-details {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 Melbourne B2B Market Entry Database</h1>
+            <p>Target Company Identification & Contact Database Development | Dongfang Liming Australia</p>
+        </header>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showTab('target-companies')">🏭 Target Companies</button>
+            <button class="nav-tab" onclick="showTab('contact-database')">📞 Contact Database</button>
+            <button class="nav-tab" onclick="showTab('analytics')">📊 Analytics & Metrics</button>
+        </div>
+
+        <!-- Target Companies Tab -->
+        <div id="target-companies" class="tab-content active">
+            <div class="section-header">🏆 Tier 1 Priority Targets: Large-Scale Manufacturers</div>
+
+            <div class="company-card">
+                <div class="company-name">McCormick Foods Australia Pty. Ltd.</div>
+                <div class="priority-stars">⭐⭐⭐⭐⭐ (Highest Priority)</div>
+                <div class="company-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Business Type:</div>
+                        Major spice, seasoning, and processed food manufacturer
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Product Focus:</div>
+                        Spices, seasonings, flavor systems, private label manufacturing
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Ingredient Requirements:</div>
+                        HIGH - Garlic powder, onion powder, dehydrated vegetables, spice blends
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Annual Volume Estimate:</div>
+                        1,000+ tons of bulk ingredients
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Strategic Value:</div>
+                        Anchor partnership potential, established retail relationships
+                    </div>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-name">Prestige Foods Australia</div>
+                <div class="priority-stars">⭐⭐⭐⭐⭐ (Highest Priority)</div>
+                <div class="company-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Business Type:</div>
+                        Ingredient manufacturer and contract producer
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Product Focus:</div>
+                        Premium stocks, sauces, RTE meal components, customized production
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Volume Potential:</div>
+                        500+ tons annually
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Website:</div>
+                        prestigefoodsaustralia.com
+                    </div>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-name">PakCo Food Processing</div>
+                <div class="priority-stars">⭐⭐⭐⭐⭐ (Highest Priority)</div>
+                <div class="company-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Business Type:</div>
+                        Contract food manufacturer and bulk processor
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Capabilities:</div>
+                        Industrial-scale blending, spray drying, extrusion, repackaging
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Volume Potential:</div>
+                        1,000+ tons annually across multiple product lines
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Website:</div>
+                        pakco.com.au
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-header">🌱 Tier 1 Targets: Plant-Based & Health Food Manufacturers</div>
+
+            <div class="company-card">
+                <div class="company-name">Harvest Gourmet (Nestlé Australia)</div>
+                <div class="priority-stars">⭐⭐⭐⭐⭐ (Highest Priority)</div>
+                <div class="company-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Location:</div>
+                        Mulgrave, Melbourne, VIC
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Business Type:</div>
+                        Plant-based meat alternatives manufacturer
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Volume Potential:</div>
+                        500+ tons annually (corporate scale)
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Contact:</div>
+                        Nestlé Australia General: 1800 025 361
+                    </div>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-name">Agtech Food Manufacturing</div>
+                <div class="priority-stars">⭐⭐⭐⭐ (High Priority)</div>
+                <div class="company-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Phone:</div>
+                        1300 385 842
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Business Type:</div>
+                        Health-conscious snacks, nutraceuticals, functional foods
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Volume Potential:</div>
+                        200-500 tons annually
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Sustainability Focus:</div>
+                        Green energy, quality control compliance
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-header">🥄 Asian Food Specialists & Distributors</div>
+
+            <div class="company-card">
+                <div class="company-name">Tasman Foods International</div>
+                <div class="priority-stars">⭐⭐⭐⭐ (High Priority)</div>
+                <div class="company-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Location:</div>
+                        Springvale, Melbourne (Southeast)
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Product Focus:</div>
+                        Asian food products, frozen options, restaurant supply
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Volume Potential:</div>
+                        300-500 tons annually
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Certifications:</div>
+                        SQF and AQIS accredited
+                    </div>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-name">Riviana Food Service</div>
+                <div class="priority-stars">⭐⭐⭐⭐ (High Priority)</div>
+                <div class="company-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Business Type:</div>
+                        Bulk ingredient supplier and food service manufacturer
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Volume Potential:</div>
+                        500+ tons annually (distributor scale)
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Strategic Value:</div>
+                        Established distribution network, manufacturer relationships
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Website:</div>
+                        rivianafoodservice.com
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Database Tab -->
+        <div id="contact-database" class="tab-content">
+            <div class="section-header">👥 Key Decision Makers: Tier 1 Priority Targets</div>
+
+            <div class="company-card">
+                <div class="company-name">McCormick Foods Australia Pty. Ltd.</div>
+                <span class="status-badge status-completed">✅ COMPLETED - Multiple contacts identified</span>
+
+                <table class="contact-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Title</th>
+                            <th>Department</th>
+                            <th>Contact Strategy</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Paris Golden</strong></td>
+                            <td>Managing Director - Australia & New Zealand</td>
+                            <td>Executive Leadership</td>
+                            <td>Executive introduction</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Linda Hayhow</strong></td>
+                            <td>Management Team (Role TBD)</td>
+                            <td>Likely Quality/Procurement</td>
+                            <td>Direct LinkedIn outreach</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Andrew Pritchard</strong></td>
+                            <td>Management Team (Role TBD)</td>
+                            <td>Likely Production</td>
+                            <td>Direct LinkedIn outreach</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Madan Mocharla</strong></td>
+                            <td>Management Team (Role TBD)</td>
+                            <td>Likely R&D/Quality</td>
+                            <td>Direct LinkedIn outreach</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="company-card">
+                <div class="company-name">Prestige Foods Australia</div>
+                <span class="status-badge status-limited">⚠️ LIMITED - Corporate inquiry required</span>
+
+                <div class="company-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Main Office:</div>
+                        +61 3 8698 4100
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">General Email:</div>
+                        pfi@prestigefoods.com.au
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Office Address:</div>
+                        Building 1, Suite 4/574 Plummer Street, Port Melbourne, VIC, 3207
+                    </div>
+                </div>
+
+                <div class="action-plan">
+                    <h4>Contact Strategy:</h4>
+                    <ul class="checklist">
+                        <li>Send professional email requesting Procurement/QA/Production manager contacts</li>
+                        <li>Follow up with phone call to main office</li>
+                        <li>LinkedIn search for additional decision makers</li>
+                        <li>Contact Josh Stenson (Export Manager) for internal referrals</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-name">Hygiene Packers Pty Ltd</div>
+                <span class="status-badge status-completed">✅ MANAGEMENT TEAM IDENTIFIED</span>
+
+                <table class="contact-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Likely Role</th>
+                            <th>Function</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Phyllis Coniglione</strong></td>
+                            <td>Company Manager/QA Oversight</td>
+                            <td>Quality Assurance Leadership</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Phill Coniglione</strong></td>
+                            <td>Senior Management/Director</td>
+                            <td>Executive Decisions</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Stephen Coniglione</strong></td>
+                            <td>Sales/Procurement Oversight</td>
+                            <td>Procurement Management</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Darren Reid</strong></td>
+                            <td>Operations/Production</td>
+                            <td>Production Management</td>
+                            <td>⭐⭐⭐⭐</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section-header">📅 Contact Execution Strategy (Next 7 Days)</div>
+
+            <div class="action-plan">
+                <h4>Day 1: High-Probability Direct Contacts</h4>
+                <ul class="checklist">
+                    <li>McCormick Foods: LinkedIn messages to Paris Golden, Linda Hayhow, Andrew Pritchard, Madan
+                        Mocharla</li>
+                    <li>Hygiene Packers: Phone call (03) 9758 6967 requesting contact details</li>
+                    <li>Tasman Foods: LinkedIn search and profile research for Henry Chen</li>
+                    <li>Aurora Foods: Phone call +61 3 9350 1800 requesting owner/manager contact</li>
+                </ul>
+            </div>
+
+            <div class="action-plan">
+                <h4>Day 2: Corporate Inquiry Approaches</h4>
+                <ul class="checklist">
+                    <li>Prestige Foods: Email pfi@prestigefoods.com.au requesting department manager contacts</li>
+                    <li>PakCo: Email orders@pakco.com.au with business introduction</li>
+                    <li>Prestige Foods: Follow-up phone call +61 3 8698 4100</li>
+                    <li>Agtech Food: Phone call 1300 385 842 requesting decision maker contacts</li>
+                </ul>
+            </div>
+
+            <div class="action-plan">
+                <h4>Day 3: LinkedIn Research & Follow-up</h4>
+                <ul class="checklist">
+                    <li>Nestlé/Harvest Gourmet: Comprehensive LinkedIn search for Australia decision makers</li>
+                    <li>Riviana Food Service: LinkedIn search for Melbourne employees</li>
+                    <li>McCormick Foods: Follow up LinkedIn messages, research specific roles</li>
+                    <li>Tasman Foods: Send initial contact to Henry Chen</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Analytics Tab -->
+        <div id="analytics" class="tab-content">
+            <div class="section-header">📊 Database Analytics & Success Metrics</div>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-number">25+</div>
+                    <div class="metric-label">Priority Target Companies</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">15+</div>
+                    <div class="metric-label">Key Decision Makers Identified</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">8</div>
+                    <div class="metric-label">Companies Researched</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">9</div>
+                    <div class="metric-label">Tier 1 Priority Targets</div>
+                </div>
+            </div>
+
+            <div class="section-header">🎯 Contact Success Probability Matrix</div>
+
+            <table class="contact-table">
+                <thead>
+                    <tr>
+                        <th>Company</th>
+                        <th>Direct Contacts</th>
+                        <th>LinkedIn Research</th>
+                        <th>Corporate Inquiry</th>
+                        <th>Success Probability</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>McCormick Foods</strong></td>
+                        <td>✅ High (5 contacts)</td>
+                        <td>✅ Role clarification</td>
+                        <td>⚠️ Email format</td>
+                        <td><span style="color: #27ae60; font-weight: bold;">🟢 HIGH (85%)</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Prestige Foods</strong></td>
+                        <td>⚠️ Corporate only</td>
+                        <td>✅ Management search</td>
+                        <td>✅ Department referrals</td>
+                        <td><span style="color: #f39c12; font-weight: bold;">🟡 MEDIUM (70%)</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hygiene Packers</strong></td>
+                        <td>✅ High (4 contacts)</td>
+                        <td>⚠️ LinkedIn verification</td>
+                        <td>✅ Role confirmation</td>
+                        <td><span style="color: #27ae60; font-weight: bold;">🟢 HIGH (85%)</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tasman Foods</strong></td>
+                        <td>✅ Director identified</td>
+                        <td>✅ Henry Chen research</td>
+                        <td>⚠️ Alternative contacts</td>
+                        <td><span style="color: #27ae60; font-weight: bold;">🟢 HIGH (75%)</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nestlé/Harvest Gourmet</strong></td>
+                        <td>❌ None identified</td>
+                        <td>✅ Comprehensive search</td>
+                        <td>✅ Corporate gateway</td>
+                        <td><span style="color: #f39c12; font-weight: bold;">🟡 MEDIUM (60%)</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="section-header">📈 Week 1 Target Metrics</div>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-number">9/9</div>
+                    <div class="metric-label">Companies Contacted (100%)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">50+</div>
+                    <div class="metric-label">Decision Makers Target</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">25+</div>
+                    <div class="metric-label">Direct Contacts Target</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">15+</div>
+                    <div class="metric-label">LinkedIn Connections Target</div>
+                </div>
+            </div>
+
+            <div class="section-header">🎯 Decision Maker Categories (Influence Weighting)</div>
+
+            <div class="company-details">
+                <div class="detail-item">
+                    <div class="detail-label">Quality Assurance Managers (35% Influence):</div>
+                    Specifications, compliance, testing, supplier approval
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Procurement Directors/Managers (30% Influence):</div>
+                    Cost negotiations, supply chain, vendor management
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Production Managers (20% Influence):</div>
+                    Operations efficiency, ingredient performance
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">R&D Managers (15% Influence):</div>
+                    Innovation projects, new product development
+                </div>
+            </div>
+
+            <div class="action-plan">
+                <h4>Success Dependencies:</h4>
+                <ul class="checklist">
+                    <li>Professional Materials: Company profile, product catalog, Brisbane case study</li>
+                    <li>Digital Presence: Website, LinkedIn, professional email signatures</li>
+                    <li>Value Proposition: Clear differentiation from existing suppliers</li>
+                    <li>Follow-up System: CRM tracking, systematic follow-up, relationship building</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
