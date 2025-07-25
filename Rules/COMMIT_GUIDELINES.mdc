@@ -1,0 +1,85 @@
+---
+globs: 
+alwaysApply: false
+---
+# Git 规范
+
+## 提交规范
+git 提交模板<type>(<scope>): <subject>，具体要求如下：
+1. 注意冒号 : 后有空格
+2. type 的枚举值有：
+- feat: 新增功能 | A new feature
+- fix: 修复缺陷 | A bug fix
+- docs: 文档更新 | Documentation only changes
+- style: 代码格式 | Changes that do not affect the meaning of the code
+- refactor: 代码重构 | A code change that neither fixes a bug nor adds a feature
+- perf: 性能提升 | A code change that improves performance
+- test: 测试相关 | Adding missing tests or correcting existing tests
+- build: 构建相关 | Changes that affect the build system or external dependencies
+- ci: 持续集成 | Changes to our CI configuration files and scripts
+- revert: 回退代码 | Revert to a commit
+- chore: 其他修改 | Other changes that do not modify src or test files
+
+3. 若 subject 中描述超过两种要点，请使用要点列表描述详情，每个要点使用-符号开头，多个换行，参考如下样例：
+```
+feat(web): implement email verification workflow
+
+- Add email verification token generation service
+- Create verification email template with dynamic links
+- Add API endpoint for token validation
+- Update user model with verification status field
+```
+### 快捷别名
+- fd: 'docs: fix typos'
+
+### 提交类型详细说明
+| 类型 | 说明 | 描述 |
+|------|------|------|
+| feat | 新增功能 | A new feature |
+| fix | 修复缺陷 | A bug fix |
+| docs | 文档更新 | Documentation only changes |
+| style | 代码格式 | Changes that do not affect the meaning of the code |
+| refactor | 代码重构 | A code change that neither fixes a bug nor adds a feature |
+| perf | 性能提升 | A code change that improves performance |
+| test | 测试相关 | Adding missing tests or correcting existing tests |
+| build | 构建相关 | Changes that affect the build system or external dependencies |
+| ci | 持续集成 | Changes to our CI configuration files and scripts |
+| revert | 回退代码 | Revert to a commit |
+| chore | 其他修改 | Other changes that do not modify src or test files |
+
+### Issue 关联前缀（适用于 Gitee）
+- link: 链接 ISSUES 进行中
+- closed: 标记 ISSUES 已完成
+
+### 配置参数
+- 使用 AI 辅助: 启用
+- 换行字符: "|"
+- 主题大小写: 不强制大写
+- 允许空范围: 是
+- 允许自定义范围: 是
+- 允许重大变更的类型: feat, fix
+- 换行字符数限制: 100
+
+## 分支管理
+- main/master: 主分支，保持稳定可发布状态
+- develop: 开发分支，包含最新开发特性
+- feature/*: 功能分支，用于开发新功能
+- bugfix/*: 修复分支，用于修复bug
+- release/*: 发布分支，用于准备发布
+
+**常用分支命名约定**：
+
+| 分支类型   | 命名格式             | 示例                      |
+| ---------- | -------------------- | ------------------------- |
+| 功能分支   | feature/[描述]       | feature/user-auth         |
+| 修复分支   | fix/[问题ID]-[描述]  | fix/issue-42-login-crash  |
+| 发布分支   | release/[版本]       | release/v2.1.0            |
+| 热修复分支 | hotfix/[版本]-[描述] | hotfix/v2.0.1-payment-fix |
+
+## 重要原则
+- **重要**：不要自动提交 git 代码，除非有明确的提示
+- 提交前确保代码通过所有测试
+- 保持提交信息简洁明了，描述清楚变更内容
+- 避免大型提交，尽量将变更分解为小的、相关的提交
+- 使用 commitizen 工具提升提交信息质量
+- 关联相关 issue 编号以便追踪
