@@ -1,0 +1,8 @@
+# Exclude Product Portfolio directory from Git tracking
+Product_Portfolio_2024-2025/
+ES_Pitch_Deck_2025/
+# Common Git ignores for documentation projects
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db 
