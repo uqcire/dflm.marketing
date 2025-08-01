@@ -408,10 +408,10 @@
         }
 
         .navbar {
-            background: #2c3e50;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             padding: 15px 0;
             margin-bottom: 20px;
-            border-radius: 15px;
+            border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
@@ -426,43 +426,71 @@
 
         .navbar-brand {
             color: white;
-            font-size: 1.2em;
-            font-weight: 600;
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .navbar-nav {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             align-items: center;
         }
 
         .nav-link {
             color: white;
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 10px 18px;
             border-radius: 25px;
             background: rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
             font-weight: 500;
             border: 2px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
         }
 
         .nav-link:hover {
-            background: #3498db;
+            background: rgba(255, 255, 255, 0.2);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .nav-link.home {
-            background: linear-gradient(135deg, #27ae60, #2ecc71);
-            font-weight: 600;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+        .nav-link.active {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
         }
 
-        .nav-link.home:hover {
-            background: linear-gradient(135deg, #229954, #27ae60);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(39, 174, 96, 0.4);
+        .nav-link.dashboard {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-link.dashboard:hover {
+            background: linear-gradient(135deg, #c0392b, #a93226);
+        }
+
+        .nav-link.todo {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-link.todo:hover {
+            background: linear-gradient(135deg, #1d4ed8, #1e40af);
+        }
+
+        .nav-link.database {
+            background: linear-gradient(135deg, #16a085, #138f75);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-link.database:hover {
+            background: linear-gradient(135deg, #138f75, #117865);
         }
 
         @media (max-width: 768px) {
@@ -510,10 +538,13 @@
                 🌏 Dongfang Liming Australia
             </div>
             <div class="navbar-nav">
-                <a href="index.html" class="nav-link home">🏠 Overview</a>
-                <a href="#overview" class="nav-link">📊 Strategic Dashboard</a>
-                <a href="AU_Melbourne_Target_Company_Contact_Database_2024-2025.html" class="nav-link">🎯 Target
-                    Database</a>
+                <a href="index.html" class="nav-link">🏠 Overview</a>
+                <a href="E_Sunrise_Strategic_Dashboard_2024-2025.html" class="nav-link dashboard active">📊 Strategic
+                    Dashboard</a>
+                <a href="AU_Melbourne_B2B_Todo_Dashboard_Toolkit_2024-2025.html" class="nav-link todo">✅ Todo
+                    Dashboard</a>
+                <a href="AU_Melbourne_Target_Company_Contact_Database_2024-2025.html" class="nav-link database">🎯
+                    Target Database</a>
             </div>
         </div>
     </nav>

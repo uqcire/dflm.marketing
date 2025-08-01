@@ -220,7 +220,7 @@
         }
 
         .navbar {
-            background: #2c3e50;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             padding: 15px 0;
             margin-bottom: 20px;
             border-radius: 10px;
@@ -238,43 +238,71 @@
 
         .navbar-brand {
             color: white;
-            font-size: 1.2em;
-            font-weight: 600;
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .navbar-nav {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             align-items: center;
         }
 
         .nav-link {
             color: white;
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 10px 18px;
             border-radius: 25px;
             background: rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
             font-weight: 500;
             border: 2px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
         }
 
         .nav-link:hover {
-            background: #3498db;
+            background: rgba(255, 255, 255, 0.2);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-link.active {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
         }
 
         .nav-link.dashboard {
             background: linear-gradient(135deg, #e74c3c, #c0392b);
-            font-weight: 600;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
         .nav-link.dashboard:hover {
             background: linear-gradient(135deg, #c0392b, #a93226);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+        }
+
+        .nav-link.todo {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-link.todo:hover {
+            background: linear-gradient(135deg, #1d4ed8, #1e40af);
+        }
+
+        .nav-link.database {
+            background: linear-gradient(135deg, #16a085, #138f75);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-link.database:hover {
+            background: linear-gradient(135deg, #138f75, #117865);
         }
 
         .contact-section {
@@ -371,11 +399,13 @@
                 🌏 Dongfang Liming Australia
             </div>
             <div class="navbar-nav">
-                <a href="#overview" class="nav-link">🏠 Overview</a>
+                <a href="index.html" class="nav-link active">🏠 Overview</a>
                 <a href="E_Sunrise_Strategic_Dashboard_2024-2025.html" class="nav-link dashboard">📊 Strategic
                     Dashboard</a>
-                <a href="AU_Melbourne_Target_Company_Contact_Database_2024-2025.html" class="nav-link">🎯 Target
-                    Database</a>
+                <a href="AU_Melbourne_B2B_Todo_Dashboard_Toolkit_2024-2025.html" class="nav-link todo">✅ Todo
+                    Dashboard</a>
+                <a href="AU_Melbourne_Target_Company_Contact_Database_2024-2025.html" class="nav-link database">🎯
+                    Target Database</a>
             </div>
         </div>
     </nav>
@@ -538,6 +568,54 @@
                             </p>
                             <span class="status-badge status-future">Future</span>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">📋 Action Plan & Todo Dashboard (NEW)</div>
+            <div class="section-content">
+                <div
+                    style="background: #f0f8ff; border: 2px solid #2563eb; border-radius: 10px; padding: 20px; margin-bottom: 20px; text-align: center;">
+                    <h3 style="color: #2563eb; margin-bottom: 15px;">📋 Complete 90-Day Action Plan & Todo Dashboard Now
+                        Available</h3>
+                    <p style="margin-bottom: 15px;">Interactive dashboard with 17+ organized tasks across 3 months,
+                        complete with progress tracking and task management.</p>
+                    <a href="AU_Melbourne_B2B_Todo_Dashboard_Toolkit_2024-2025.html"
+                        style="background: #2563eb; color: white; padding: 15px 30px; border-radius: 25px; text-decoration: none; font-weight: 600; display: inline-block; transition: all 0.3s ease;"
+                        onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='#2563eb'">
+                        ✅ Access Todo Dashboard →
+                    </a>
+                </div>
+
+                <div class="cards-grid">
+                    <div class="card">
+                        <h4>📅 Month 1: Foundation & Target Identification</h4>
+                        <ul>
+                            <li>Priority target research (5 tasks)</li>
+                            <li>Sales toolkit development (2 tasks)</li>
+                            <li>Digital presence establishment (2 tasks)</li>
+                            <li>Communication infrastructure (2 tasks)</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>📊 Interactive Dashboard Features</h4>
+                        <ul>
+                            <li>Real-time progress tracking (29% complete)</li>
+                            <li>Task filtering by status & month</li>
+                            <li>Owner assignment & due dates</li>
+                            <li>Interactive checkboxes for completion</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>🎯 Execution Ready</h4>
+                        <ul>
+                            <li>5/17 tasks already completed</li>
+                            <li>Clear ownership for each task</li>
+                            <li>90-day timeline with milestones</li>
+                            <li>Immediate implementation possible</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -720,6 +798,14 @@
                     <p><strong>Research Phase:</strong> Complete ✓</p>
                     <p><strong>Planning Phase:</strong> Complete ✓</p>
                     <p><strong>Implementation:</strong> Ready to Start</p>
+                </div>
+
+                <div class="contact-card">
+                    <h4><a href="AU_Melbourne_B2B_Todo_Dashboard_Toolkit_2024-2025.html"
+                            style="color: #2563eb; text-decoration: none;">✅ Todo Dashboard</a></h4>
+                    <p><strong>Action Plan:</strong> Complete ✓</p>
+                    <p><strong>Tasks:</strong> 17+ organized items</p>
+                    <p><strong>Progress:</strong> 29% completed</p>
                 </div>
 
                 <div class="contact-card">
