@@ -6,3 +6,4 @@ ES_Pitch_Deck_2025/
 *.temp
 .DS_Store
 Thumbs.db 
+node_modules

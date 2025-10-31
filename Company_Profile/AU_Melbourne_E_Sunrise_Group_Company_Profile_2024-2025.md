@@ -53,6 +53,30 @@ To become the most trusted and reliable supplier of Chinese agricultural product
 
 ---
 
+## 🎤 Brand Voice & Communication Guidelines
+
+### **Brand Voice Characteristics**
+- **Industrial & Supply-Focused**: Emphasize manufacturing capabilities, supply chain efficiency, and operational excellence
+- **Professional & Technical**: Use precise, industry-specific terminology that demonstrates deep expertise
+- **Reliable & Consistent**: Communicate with confidence based on proven track record and established operations
+- **Solution-Oriented**: Focus on solving supply chain challenges and meeting business requirements
+- **Partnership-Driven**: Emphasize collaborative relationships and mutual value creation
+
+### **Communication Principles**
+- **Data-Driven**: Support claims with specific metrics, volumes, and performance indicators
+- **Process-Oriented**: Highlight operational capabilities, quality control systems, and supply chain management
+- **Scale-Focused**: Emphasize production capacity, global reach, and economies of scale advantages
+- **Compliance-Aware**: Demonstrate understanding of regulatory requirements and international standards
+- **Results-Oriented**: Focus on business outcomes, cost savings, and operational efficiencies
+
+### **Tone Guidelines**
+- **Confident but Not Overstated**: Leverage 20+ years of proven experience without being boastful
+- **Technical but Accessible**: Use industry terminology while remaining clear and understandable
+- **Professional but Approachable**: Maintain business formality while being collaborative and responsive
+- **Forward-Looking**: Balance proven track record with future growth and innovation capabilities
+
+---
+
 ## 🏆 Parent Company Honors & Recognition
 
 ### **National Recognition**

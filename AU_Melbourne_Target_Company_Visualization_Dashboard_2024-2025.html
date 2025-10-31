@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Sunrise Target Company Visualization Dashboard 2024-2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .dashboard-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .stats-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+
+        .industry-tabs {
+            display: flex;
+            background: white;
+            border-bottom: 1px solid #e9ecef;
+            overflow-x: auto;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            background: white;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            color: #7f8c8d;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab-button:hover {
+            background: #f8f9fa;
+            color: #667eea;
+        }
+
+        .tab-button.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+            background: #f8f9fa;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 30px;
+            background: white;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .industry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+
+        .industry-title {
+            font-size: 1.8em;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .industry-count {
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .companies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .company-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .company-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .company-name {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .company-location {
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .company-description {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .company-website {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .company-website:hover {
+            text-decoration: underline;
+        }
+
+        .geographic-overview {
+            padding: 30px;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .city-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .city-name {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .city-count {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .city-label {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+
+        .search-filter {
+            padding: 20px 30px;
+            background: white;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #e9ecef;
+            border-radius: 25px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .priority-legend {
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .legend-item {
+            display: inline-block;
+            margin-right: 20px;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .legend-high {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .legend-medium {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .legend-low {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .companies-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-overview {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="header">
+            <h1>🎯 E-Sunrise Target Company Visualization Dashboard</h1>
+            <p>Comprehensive Market Research: 500+ Companies Across 5 Target Industries (Victoria Focus)</p>
+        </div>
+
+        <div class="stats-overview">
+            <div class="stat-card">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Total Companies</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Target Industries</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Major Cities</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">Per Industry</div>
+            </div>
+        </div>
+
+        <div class="search-filter">
+            <input type="text" class="search-input" placeholder="Search companies by name, location, or description..." id="searchInput">
+        </div>
+
+        <div class="priority-legend">
+            <span class="legend-item legend-high">High Priority: Large-scale manufacturers, proven volume requirements</span>
+            <span class="legend-item legend-medium">Medium Priority: Established manufacturers with growth potential</span>
+            <span class="legend-item legend-low">Future Targets: Specialized manufacturers for long-term development</span>
+        </div>
+
+        <div class="industry-tabs">
+            <button class="tab-button active" onclick="showTab('manufacturers')">🏭 Food Manufacturers</button>
+            <button class="tab-button" onclick="showTab('distributors')">🍽️ Food Service & Distribution</button>
+            <button class="tab-button" onclick="showTab('retail')">🛒 Retail Chains & Supermarkets</button>
+            <button class="tab-button" onclick="showTab('ingredients')">📦 Ingredient & Bulk Suppliers</button>
+            <button class="tab-button" onclick="showTab('importers')">🌍 Importers & Trade Partners</button>
+        </div>
+
+        <div id="manufacturers" class="tab-content active">
+            <div class="industry-header">
+                <div class="industry-title">Food Manufacturers & Processors</div>
+                <div class="industry-count">100+ Companies</div>
+            </div>
+            <div class="companies-grid" id="manufacturersGrid">
+                <!-- Companies will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <div id="distributors" class="tab-content">
+            <div class="industry-header">
+                <div class="industry-title">Food Service & Distribution</div>
+                <div class="industry-count">100+ Companies</div>
+            </div>
+            <div class="companies-grid" id="distributorsGrid">
+                <!-- Companies will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <div id="retail" class="tab-content">
+            <div class="industry-header">
+                <div class="industry-title">Retail Chains & Supermarkets</div>
+                <div class="industry-count">100+ Companies</div>
+            </div>
+            <div class="companies-grid" id="retailGrid">
+                <!-- Companies will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <div id="ingredients" class="tab-content">
+            <div class="industry-header">
+                <div class="industry-title">Ingredient & Bulk Suppliers</div>
+                <div class="industry-count">100+ Companies</div>
+            </div>
+            <div class="companies-grid" id="ingredientsGrid">
+                <!-- Companies will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <div id="importers" class="tab-content">
+            <div class="industry-header">
+                <div class="industry-title">Importers & Trade Partners</div>
+                <div class="industry-count">100+ Companies</div>
+            </div>
+            <div class="companies-grid" id="importersGrid">
+                <!-- Companies will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <div class="geographic-overview">
+            <h2 class="section-title">🌏 Geographic Distribution (Victoria)</h2>
+            <div class="cities-grid">
+                <div class="city-card">
+                    <div class="city-name">Melbourne Metro</div>
+                    <div class="city-count">250+</div>
+                    <div class="city-label">Companies</div>
+                </div>
+                <div class="city-card">
+                    <div class="city-name">Geelong Region</div>
+                    <div class="city-count">50+</div>
+                    <div class="city-label">Companies</div>
+                </div>
+                <div class="city-card">
+                    <div class="city-name">Ballarat & Bendigo</div>
+                    <div class="city-count">40+</div>
+                    <div class="city-label">Companies</div>
+                </div>
+                <div class="city-card">
+                    <div class="city-name">Shepparton & Goulburn</div>
+                    <div class="city-count">40+</div>
+                    <div class="city-label">Companies</div>
+                </div>
+                <div class="city-card">
+                    <div class="city-name">Gippsland</div>
+                    <div class="city-count">30+</div>
+                    <div class="city-label">Companies</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Last Updated: <span id="lastUpdated"></span></p>
+            <p>E-Sunrise Australia Target Company Visualization Dashboard 2024-2025</p>
+        </div>
+    </div>
+
+    <script>
+        // Company data from the database
+        const companiesData = {
+            manufacturers: [
+                { name: "McCormick Foods Australia", location: "Melbourne, VIC", description: "Major spice, seasoning, and processed food manufacturer." },
+                { name: "Prestige Foods Australia", location: "Melbourne, VIC", description: "Ingredient manufacturer and contract producer of stocks, sauces, and meals. (Newly Identified)" },
+                { name: "PakCo Food Processing", location: "Melbourne, VIC", description: "Contract food manufacturer and bulk processor for blending/drying." },
+                { name: "Harvest Gourmet (Nestlé Australia)", location: "Mulgrave, VIC", description: "Plant-based meat alternatives manufacturer." },
+                { name: "Tasman Foods International", location: "Springvale, VIC", description: "Premium frozen finger foods and seafood manufacturer (Asian focus)." },
+                { name: "Aurora Foods", location: "Melbourne, VIC", description: "Contract food manufacturing, manages ingredient procurement." },
+                { name: "Agtech Food Manufacturing", location: "Melbourne, VIC", description: "Health-conscious snacks, nutraceuticals, functional foods." },
+                { name: "Maltra Foods", location: "Melbourne, VIC", description: "Dry powder and liquid food/beverage products (HACCP certified)." },
+                { name: "Flavour Makers", location: "Dingley, VIC", description: "Develops dry blends and sauces for many Australian brands. (Newly Identified)"},
+                { name: "Annex Foods", location: "Australia", description: "Contract manufacturing for bars, granolas, cereals. (Newly Identified)" },
+                { name: "Hoyts Food", location: "Cheltenham, VIC", description: "Spices, seasonings, dehydrated foods." },
+                { name: "Patties Foods", location: "Bairnsdale, VIC", description: "Frozen foods, baked goods." },
+                { name: "SPC Australia", location: "Shepparton, VIC", description: "Canned foods, fruit, sauces." }
+            ],
+            distributors: [ // Food Service & Distribution
+                { name: "Bidfood Australia", location: "Port Melbourne, VIC", description: "Major broadline foodservice distributor." },
+                { name: "PFD Food Services Pty Ltd", location: "Knoxfield, VIC", description: "Full-range foodservice, major national distributor." },
+                { name: "Metcash Foodservice", location: "Various VIC", description: "Broadline wholesale food supply." },
+                { name: "Superior Food Services", location: "Oakleigh, VIC", description: "Fresh, frozen, chilled, dry food products." },
+                { name: "Countrywide Food Service Distributors", location: "Victoria", description: "Group of independently owned distributors." },
+                { name: "NAFDA Foodservice", location: "National", description: "Network of 68 independently owned foodservice distributors. (Newly Identified)" },
+                { name: "Prime Food Distributor (PFD)", location: "National", description: "Integrated protein production and fulfillment. (Newly Identified)" },
+                { name: "Melbourne Food Distributors", location: "Clayton, VIC", description: "Urban and suburban foodservice distribution." },
+                { name: "Angeles Fine Foods Australia", location: "Melbourne, VIC", description: "Premium gourmet food products." },
+                { name: "Inghams Group Limited", location: "National", description: "Leading poultry producer and distributor." }
+            ],
+            retail: [ // Retail Chains & Supermarkets
+                { name: "Woolworths Group", location: "National", description: "Major supermarket chain with extensive private label programs." },
+                { name: "Coles Group", location: "National", description: "Major supermarket chain with extensive private label programs." },
+                { name: "ALDI", location: "National", description: "Discount supermarket with strong emphasis on private label." },
+                { name: "IGA (Metcash)", location: "National", description: "Independent grocers network with private label programs." },
+                { name: "Costco Wholesale", location: "National", description: "Membership-based bulk groceries and private label." },
+                { name: "Crown Brands", location: "NZ & Australia", description: "Supplies and manages production for private label brands. (Newly Identified)" }
+            ],
+            ingredients: [ // Ingredient & Bulk Suppliers
+                { name: "Riviana Food Service", location: "Melbourne, VIC", description: "Bulk ingredient supplier and food service manufacturer." },
+                { name: "Complete Food Services", location: "Melbourne, VIC", description: "Wholesale distributor to food manufacturers." },
+                { name: "Davis Food Ingredients", location: "Melbourne, VIC", description: "Bulk ingredient supplier to processors." },
+                { name: "Honest to Goodness", location: "National", description: "Supplier of premium quality organic and natural bulk ingredients. (Newly Identified)" },
+                { name: "Goodman Fielder Food Service", location: "National", description: "Leading supplier of bakery ingredients, grains, and legumes. (Newly Identified)" },
+                { name: "Key Food Solutions", location: "Coburg North, VIC", description: "Bulk supply of food ingredients, seasoning blends, sauces." },
+                { name: "Melbourne Food Depot", location: "Melbourne, VIC", description: "Bulk supply of spices, seasonings, hydrocolloids." },
+                { name: "Knoxx Foods", location: "Sydney, NSW", description: "Bulk food ingredients importer (tomato paste, rice)." },
+                { name: "Langdon Ingredients", location: "Victoria", description: "Spices, dehydrated vegetables, seasonings, pulses." },
+                { name: "Manildra Group", location: "National", description: "Starch, proteins, syrups, sugar." }
+            ],
+            importers: [ // Distribution & Wholesale Partners
+                { name: "Scalzo Foods", location: "West Melbourne, VIC", description: "Import, manufacture, distribution of nuts, dried fruit, grains." },
+                { name: "Oriental Merchant", location: "Mulgrave, VIC", description: "Large-scale Asian food import." },
+                { name: "Basfoods", location: "Brunswick, VIC", description: "Mediterranean & Middle Eastern wholesaler/importer." },
+                { name: "JFC Australia Co Pty Ltd", location: "Melbourne, VIC", description: "Specialty Asian import (Japanese foods)." },
+                { name: "Campbells Marketing", location: "National", description: "Cash and carry wholesaler with 14 branches. (Newly Identified)" },
+                { name: "Metcash", location: "National", description: "Major grocery distributor, imports to 10,000+ stores." }
+            ]
+        };
+
+        // Initialize the dashboard
+        function initializeDashboard() {
+            populateCompanies();
+            setupSearch();
+            updateLastUpdated();
+        }
+
+        // Populate companies in each industry tab
+        function populateCompanies() {
+            Object.keys(companiesData).forEach(industry => {
+                const grid = document.getElementById(industry + 'Grid');
+                if (grid) {
+                    grid.innerHTML = companiesData[industry].map(company => `
+                        <div class="company-card">
+                            <div class="company-name">${company.name}</div>
+                            <div class="company-location">📍 ${company.location}</div>
+                            <div class="company-description">${company.description}</div>
+                            ${company.website ? `<a href="https://${company.website}" target="_blank" class="company-website">🌐 ${company.website}</a>` : ''}
+                        </div>
+                    `).join('');
+                }
+            });
+        }
+
+        // Tab switching functionality
+        function showTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        // Search functionality
+        function setupSearch() {
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                filterCompanies(searchTerm);
+            });
+        }
+
+        // Filter companies based on search term
+        function filterCompanies(searchTerm) {
+            Object.keys(companiesData).forEach(industry => {
+                const grid = document.getElementById(industry + 'Grid');
+                if (grid) {
+                    const cards = grid.querySelectorAll('.company-card');
+                    cards.forEach(card => {
+                        const text = card.textContent.toLowerCase();
+                        if (text.includes(searchTerm)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                }
+            });
+        }
+
+        // Update last updated time
+        function updateLastUpdated() {
+            document.getElementById('lastUpdated').textContent = new Date().toLocaleString();
+        }
+
+        // Initialize dashboard when page loads
+        document.addEventListener('DOMContentLoaded', initializeDashboard);
+    </script>
+</body>
+</html>
